@@ -65,5 +65,10 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.10",
     "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.0-alpha1",
+    "masonry-layout": "^4.2.2",
+    "popper.js": "^1.16.1"
   }
 }

@@ -1,19 +1,19 @@
-<div class="bg-off-white pv4">
-	<div class="ph3 mw7 center">
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2" data-masonry='{"percentPosition": true }'>
+		{{ range (where .Site.Pages "Type" "post") }}
+	
 
-		<h2 class="f2 b lh-title mb3">Latest stories</h2>
+      <div class="mb-4 ">
+        <div class="card ">
+          <img src="{{.Params.image}}" class="card-img-top" alt="{{ .Title }}">
+         <div class="card-body">
+            <h5 class="card-title">	{{ .Params.Title }}</h5>
+			<p class="card-text">{{ .Params.description}}</p>
+			<a href="{{.Permalink}}" class="stretched-link">Entrar</a>
+          </div>
+        </div>
+      </div>
+	  {{ end }}
 
-		<div class="w-100 flex-ns mhn1-ns flex-wrap mb3">
-			{{ range first 4 (where .Data.Pages "Type" "post") }}
-				<div class="ph1-ns w-50-ns flex">
-					{{ .Render "li" }}
-				</div>
-			{{ end }}
-		</div>
-
-		<div class="tc">
-			<a href="/post" class="btn raise">Read more</a>
-		</div>
-
-	</div>
-</div>
+    </div>
+  </div>
