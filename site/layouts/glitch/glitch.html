@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="container p-5">
+
+    <div class="jumbotron">
+        <h1 class="display-4"> Glitch</h1>
+        <p class="lead">Subtitulo</p>
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="row row-cols-1 row-cols-md-2" data-masonry='{"percentPosition": true }'>
+        {{ range (.Paginator 15).Pages.ByPublishDate.Reverse }}
+        <div class="mb-4 ">
+            <div class="card ">
+                <img src="{{.Params.image}}" class="card-img-top" alt="{{ .Title }}">
+                <div class="card-body">
+                    <h5 class="card-title"> {{ .Params.Title }}</h5>
+                    <p class="card-text">{{ .Params.description}}</p>
+                    <a href="{{.Permalink}}" class="stretched-link">Entrar</a>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+        {{ partial "pagination" . }}
+    </div>
+</div>
+{{end}}
